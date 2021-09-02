@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   res.end("stocks-backend running");
 });
 
-app.use("/topgainers", topGainersController);
+app.use("/api/topgainers", topGainersController);
 
 app.listen(config.PORT, () => {
   console.log(`Server running on ${config.URL}:${config.PORT}`);
