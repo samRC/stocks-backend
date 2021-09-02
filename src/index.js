@@ -1,11 +1,17 @@
 const express = require("express");
+const app = express();
+
+// config
 const config = require("./config");
 
-const app = express();
+// routes
+const topGainersController = require("./controllers/topGainers");
 
 app.get("/", (req, res) => {
   res.end("stocks-backend running");
 });
+
+app.use("/topgainers", topGainersController);
 
 app.listen(config.PORT, () => {
   console.log(`Server running on ${config.URL}:${config.PORT}`);
