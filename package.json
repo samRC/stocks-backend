@@ -1,0 +1,27 @@
+{
+  "name": "stocks-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samRC/stocks-backend.git"
+  },
+  "author": "SamRC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samRC/stocks-backend/issues"
+  },
+  "homepage": "https://github.com/samRC/stocks-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
