@@ -32,8 +32,8 @@ Fetches the top 10 gainers
     "percentChange": "3.48",
     "lastTradedPrice": "955.00",
     "volume": "36,88,123"
-  }
-  // ...
+  },
+  ...
 ]
 ```
 
@@ -50,8 +50,8 @@ keys are the symbol names and values are the company names
 {
   "21STCENMGM": "Twentyfirst Century Management Services Ltd.",
   "A2ZINFRA": "A2Z Infra Engineering Ltd.",
-  "AARTIDRUGS": "Aarti Drugs Ltd."
-  // ...
+  "AARTIDRUGS": "Aarti Drugs Ltd.",
+  ...
 }
 ```
 
@@ -68,8 +68,8 @@ keys are the symbol names and values are the company names
   "ASIANPAINT": "Asian Paints Ltd.",
   "AXISBANK": "Axis Bank Ltd.",
   "BAJAJ-AUTO": "Bajaj Auto Ltd.",
-  "BAJFINANCE": "Bajaj Finance Ltd."
-  // ...
+  "BAJFINANCE": "Bajaj Finance Ltd.",
+  ...
 }
 ```
 
@@ -79,20 +79,20 @@ keys are the symbol names and values are the company names
 
 Fetches recent news of a particular stock given it's symbol
 
-**Response (example):**
+**Response:**
 
 An array of articles' metadata
 
 ```json
 [
 {
- title,
- link,
- guid,
- pubDate,
- description,
- source
+ "title":"",
+ "link":"",
+ "guid":"",
+ "pubDate":"",
+ "description":"",
+ "source":""
 },
-// ...
+ ...
 ]
 ```
