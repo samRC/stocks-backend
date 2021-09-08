@@ -8,7 +8,11 @@ stocksListController.get("/", async (req, res) => {
 });
 
 stocksListController.get("/nifty50", async (req, res) => {
-  return res.json(nifty50StocksList);
+  const stocksObj = {};
+  nifty50StocksList.nifty50.forEach((s) => {
+    stocksObj[s] = nseStocksList[s];
+  });
+  return res.json(stocksObj);
 });
 
 module.exports = stocksListController;
