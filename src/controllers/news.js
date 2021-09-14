@@ -19,9 +19,20 @@ newsController.get("/:symbol", (req, res) => {
       var jsonObj = parser.parse(resp.data, {});
       // console.log("PARSED: ", Object.values(jsonObj.rss.channel.item));
       // console.log("Data", (jsonObj.rss.channel.item.map(x => x.description)))
-      res.json(jsonObj.rss.channel.item.map((x) => x));
+
+      // Check if news was returned
+      if (!jsonObj.rss.channel.item)
+        throw new Error("No new news in the past 2 days");
+      const news = jsonObj.rss.channel.item.map((x) => x);
+      res.json(news);
     })
-    .catch((e) => res.status(400).json({ error: "Invalid Stock Symbol" }));
+    .catch((e) => {
+      if (e.message.match(/invalid stock symbol/gi))
+        return res.status(400).json({ error: e.message });
+      else if (e.message.match(/no new news/gi))
+        return res.status(404).json({ error: e.message });
+      return res.status(500).json({ error: e.message });
+    });
 });
 
 module.exports = newsController;
