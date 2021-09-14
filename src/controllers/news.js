@@ -23,7 +23,7 @@ newsController.get("/:symbol", (req, res) => {
       // Check if news was returned
       if (!jsonObj.rss.channel.item)
         throw new Error("No new news in the past 2 days");
-      const news = jsonObj.rss.channel.item.map((x) => x);
+      const news = jsonObj.rss.channel.item;
       res.json(news);
     })
     .catch((e) => {
