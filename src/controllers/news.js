@@ -11,7 +11,7 @@ newsController.get("/:symbol", (req, res) => {
 
   axios
     .get(
-      `https://news.google.com/rss/search?q=${symbol}%dwhen:7d&hl=en-IN&gl=IN&ceid=IN:en`
+      `https://news.google.com/rss/search?q=${symbol}%20when:7d&hl=en-IN&gl=IN&ceid=IN:en`
     )
     .then((resp) => {
       if (!nseStocksList.hasOwnProperty(symbol))
