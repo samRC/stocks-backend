@@ -11,7 +11,7 @@ newsController.get("/:symbol", (req, res) => {
 
   axios
     .get(
-      `https://news.google.com/rss/search?q=${symbol}%dwhen:2d&hl=en-IN&gl=IN&ceid=IN:en`
+      `https://news.google.com/rss/search?q=${symbol}%dwhen:7d&hl=en-IN&gl=IN&ceid=IN:en`
     )
     .then((resp) => {
       if (!nseStocksList.hasOwnProperty(symbol))
@@ -22,8 +22,13 @@ newsController.get("/:symbol", (req, res) => {
 
       // Check if news was returned
       if (!jsonObj.rss.channel.item)
-        throw new Error("No new news in the past 2 days");
-      const news = jsonObj.rss.channel.item;
+        throw new Error("No new news in the past few days");
+      let news = jsonObj.rss.channel.item;
+
+      // if more than one element then news is array & has length property
+      // then sort in descending order of date
+      if (news.length)
+        news = news.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
       res.json(news);
     })
     .catch((e) => {
