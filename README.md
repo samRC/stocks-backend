@@ -1,5 +1,9 @@
 # stocks-news-feed Backend REST API
 
+## Used by FrontEnd React Native App
+
+- [https://github.com/samRC/stocks-news-feed](https://github.com/samRC/stocks-news-feed)
+
 ## Scripts
 
 ### Start Server
